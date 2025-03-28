@@ -15,8 +15,8 @@ with st.container():
         orientation="horizontal",  # Horizontal para o topo
         styles={
             "container": {"padding": "5px", "background-color": "#007bff"},  # Cor de fundo das abas (azul)
-            "icon": {"color": "white", "font-size": "20px"},  # Cor dos ícones
-            "nav-link": {"font-size": "16px", "font-weight": "bold", "color": "white"},  # Estilo do texto do menu
+            "icon": {"color": "white"},  # Cor dos ícones
+            "nav-link": {"font-size": "16px", "color": "white"},  # Estilo do texto do menu
             "nav-link-selected": {"background-color": "#0056b3", "color": "white"}  # Cor da aba selecionada
         }
     )
@@ -42,8 +42,8 @@ with st.container():
         orientation="horizontal",  # Horizontal para o rodapé
         styles={
             "container": {"padding": "5px", "background-color": "#007bff"},  # Cor de fundo das abas (azul)
-            "icon": {"color": "white", "font-size": "20px"},  # Cor dos ícones
-            "nav-link": {"font-size": "16px", "font-weight": "bold", "color": "white"},  # Estilo do texto do menu
+            "icon": {"color": "white"},  # Cor dos ícones
+            "nav-link": {"font-size": "16px", "color": "white"},  # Estilo do texto do menu
             "nav-link-selected": {"background-color": "#0056b3", "color": "white"}  # Cor da aba selecionada
         }
     )
