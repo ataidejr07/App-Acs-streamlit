@@ -3,7 +3,10 @@ from streamlit_option_menu import option_menu
 
 "Configuração da página"
 
-st.set_page_config(page_title="Meu App", page_icon="🏠", layout="wide") st.title("Meu App")  # Nome do aplicativo st.write("Bem-vindo, Ataide!")
+st.set_page_config(page_title="Meu App",
+                   page_icon="🏠", layout="wide")
+st.title("Meu App")  # Nome do aplicativo
+st.write("Bem-vindo, Ataide!")
 
 Estilização dos botões como cartões clicáveis
 
