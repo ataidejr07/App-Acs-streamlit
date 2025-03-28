@@ -1,71 +1,57 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 
-# Configuração da página
-st.set_page_config(page_title="Meu App de Saúde", page_icon="🏥", layout="centered")
+# Personalização das abas (em cima e no rodapé)
+st.set_page_config(page_title="Meu App", page_icon="🏠")
 
-# Estilo personalizado
-st.markdown(
-    """
-    <style>
-    body {
-        background-color: white;
-    }
-    .stButton>button {
-        width: 100px;
-        height: 100px;
-        font-size: 20px;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .button-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        justify-content: center;
-        align-items: center;
-    }
-    .title {
-        text-align: center;
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+# Abas no topo (usando a biblioteca option_menu)
+with st.container():
+    selected = option_menu(
+        menu_title=None,  # Título do menu
+        options=["Início", "Cadastro", "Relatórios", "Configurações"],  # Opções de menu
+        icons=["house", "person", "file-earmark", "gear"],  # Ícones dos botões
+        menu_icon="cast",  # Ícone do menu
+        default_index=0,  # Aba padrão selecionada
+        orientation="horizontal",  # Horizontal para o topo
+        styles={
+            "container": {"padding": "5px", "background-color": "#007bff"},  # Cor de fundo das abas (azul)
+            "icon": {"color": "white", "font-size": "20px"},  # Cor dos ícones
+            "nav-link": {"font-size": "16px", "font-weight": "bold", "color": "white"},  # Estilo do texto do menu
+            "nav-link-selected": {"background-color": "#0056b3", "color": "white"}  # Cor da aba selecionada
+        }
+    )
 
-# Layout principal
-st.markdown('<p class="title">Bem-vindo, Ataide!</p>', unsafe_allow_html=True)
+# Exemplo de conteúdo para cada aba
+if selected == "Início":
+    st.write("Bem-vindo à página inicial!")
+elif selected == "Cadastro":
+    st.write("Aqui você pode adicionar novos cadastros de pacientes.")
+elif selected == "Relatórios":
+    st.write("Visualize os relatórios aqui.")
+elif selected == "Configurações":
+    st.write("Ajuste as configurações do aplicativo aqui.")
 
-# Container para os botões
-col1, col2 = st.columns(2)
+# Abas no rodapé
+with st.container():
+    footer_selected = option_menu(
+        menu_title=None,  # Título do menu
+        options=["Ajuda", "Sobre", "Contato"],  # Opções de menu
+        icons=["info-circle", "info", "envelope"],  # Ícones dos botões
+        menu_icon="cast",  # Ícone do menu
+        default_index=0,  # Aba padrão selecionada
+        orientation="horizontal",  # Horizontal para o rodapé
+        styles={
+            "container": {"padding": "5px", "background-color": "#007bff"},  # Cor de fundo das abas (azul)
+            "icon": {"color": "white", "font-size": "20px"},  # Cor dos ícones
+            "nav-link": {"font-size": "16px", "font-weight": "bold", "color": "white"},  # Estilo do texto do menu
+            "nav-link-selected": {"background-color": "#0056b3", "color": "white"}  # Cor da aba selecionada
+        }
+    )
 
-with col1:
-    if st.button("📋 Pacientes", key="pacientes"):
-        st.session_state.page = "pacientes"
-
-    if st.button("📍 Endereços", key="enderecos"):
-        st.session_state.page = "enderecos"
-
-with col2:
-    if st.button("📝 Visitas", key="visitas"):
-        st.session_state.page = "visitas"
-
-    if st.button("🔍 Filtrar", key="filtrar"):
-        st.session_state.page = "filtrar"
-
-# Gerenciamento de páginas
-if "page" in st.session_state:
-    if st.session_state.page == "pacientes":
-        st.write("Página de Pacientes")
-    elif st.session_state.page == "enderecos":
-        st.write("Página de Endereços")
-    elif st.session_state.page == "visitas":
-        st.write("Página de Visitas")
-    elif st.session_state.page == "filtrar":
-        st.write("Página de Filtros")
-
+# Exemplo de conteúdo para cada aba de rodapé
+if footer_selected == "Ajuda":
+    st.write("Página de ajuda!")
+elif footer_selected == "Sobre":
+    st.write("Informações sobre o aplicativo.")
+elif footer_selected == "Contato":
+    st.write("Informações de contato.")
