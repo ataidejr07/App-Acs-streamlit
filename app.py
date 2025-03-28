@@ -1,58 +1,71 @@
 import streamlit as st
+from streamlit_option_menu import option_menu
 
-st.set_page_config(page_title="Meu App", page_icon="🏥", layout="centered")
+# Configuração da página
+st.set_page_config(page_title="Meu App de Saúde", page_icon="🏥", layout="centered")
 
-# Estilo com CSS para abas azuis
-top_bar = """
+# Estilo personalizado
+st.markdown(
+    """
     <style>
-    .top-bar {
-        background-color: #007BFF;
-        padding: 10px;
+    body {
+        background-color: white;
+    }
+    .stButton>button {
+        width: 100px;
+        height: 100px;
+        font-size: 20px;
         text-align: center;
-        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .button-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+    .title {
+        text-align: center;
         font-size: 24px;
         font-weight: bold;
-        border-radius: 10px 10px 0 0;
-    }
-    .bottom-bar {
-        background-color: #007BFF;
-        padding: 15px;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        text-align: center;
-        color: white;
-        font-size: 16px;
-        border-radius: 0 0 10px 10px;
+        margin-bottom: 20px;
     }
     </style>
-"""
+    """,
+    unsafe_allow_html=True
+)
 
-st.markdown(top_bar, unsafe_allow_html=True)
-st.markdown("<div class='top-bar'>Meu App de Saúde</div>", unsafe_allow_html=True)
+# Layout principal
+st.markdown('<p class="title">Bem-vindo, Ataide!</p>', unsafe_allow_html=True)
 
-# Navegação entre páginas
-menu = st.sidebar.radio("Navegação", ["Página Inicial", "Cadastro de Pacientes", "Visualizar Pacientes", "Agrupar por Endereço", "Registrar Visitas"])
+# Container para os botões
+col1, col2 = st.columns(2)
 
-if menu == "Página Inicial":
-    st.subheader("Bem-vindo! Escolha uma opção no menu lateral.")
+with col1:
+    if st.button("📋 Pacientes", key="pacientes"):
+        st.session_state.page = "pacientes"
 
-elif menu == "Cadastro de Pacientes":
-    st.subheader("Cadastro de Pacientes")
-    nome = st.text_input("Nome do Paciente")
-    idade = st.number_input("Idade", min_value=0, max_value=120, step=1)
-    endereco = st.text_area("Endereço")
-    comorbidades = st.text_area("Comorbidades")
-    if st.button("Salvar"):
-        st.success(f"Paciente {nome} cadastrado com sucesso!")
+    if st.button("📍 Endereços", key="enderecos"):
+        st.session_state.page = "enderecos"
 
-elif menu == "Visualizar Pacientes":
-    st.subheader("Lista de Pacientes (Em breve)")
+with col2:
+    if st.button("📝 Visitas", key="visitas"):
+        st.session_state.page = "visitas"
 
-elif menu == "Agrupar por Endereço":
-    st.subheader("Agrupar por Endereço (Em breve)")
+    if st.button("🔍 Filtrar", key="filtrar"):
+        st.session_state.page = "filtrar"
 
-elif menu == "Registrar Visitas":
-    st.subheader("Registrar Visitas (Em breve)")
+# Gerenciamento de páginas
+if "page" in st.session_state:
+    if st.session_state.page == "pacientes":
+        st.write("Página de Pacientes")
+    elif st.session_state.page == "enderecos":
+        st.write("Página de Endereços")
+    elif st.session_state.page == "visitas":
+        st.write("Página de Visitas")
+    elif st.session_state.page == "filtrar":
+        st.write("Página de Filtros")
 
-st.markdown("<div class='bottom-bar'>Rodapé - Futuras Funcionalidades</div>", unsafe_allow_html=True)
