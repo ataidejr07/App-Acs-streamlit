@@ -10,9 +10,9 @@ with st.sidebar: st.header("Outras Opções") st.button("Cartões Espelho", help
 
 Organização dos botões principais em seções
 
-st.subheader("Cadastros") col1, col2, col3 = st.columns([3, 3, 3]) with col1: st.button("Domicílios", help="Cadastro de Domicílios", key="domicilios", use_container_width=True) with col2: st.button("Famílias", help="Cadastro de Famílias", key="familias", use_container_width=True) with col3: st.button("Cidadãos", help="Cadastro de Cidadãos", key="cidadaos", use_container_width=True)
+st.subheader("Cadastros") col1, col2, col3 = st.columns(3) with col1: st.button("Domicílios", help="Cadastro de Domicílios", key="domicilios", use_container_width=True) with col2: st.button("Famílias", help="Cadastro de Famílias", key="familias", use_container_width=True) with col3: st.button("Cidadãos", help="Cadastro de Cidadãos", key="cidadaos", use_container_width=True)
 
-st.subheader("Análises e Relatórios") col1, col2, col3 = st.columns([3, 3, 3]) with col1: st.button("Relatórios", help="Visualização de Relatórios", key="relatorios", use_container_width=True) with col2: st.button("Resumo de Produção", help="Resumo de Produção", key="resumo_producao", use_container_width=True) with col3: st.button("Nascimentos e Óbitos", help="Dados de Nascimentos e Óbitos", key="nascimentos_obitos", use_container_width=True)
+st.subheader("Análises e Relatórios") col1, col2, col3 = st.columns(3) with col1: st.button("Relatórios", help="Visualização de Relatórios", key="relatorios", use_container_width=True) with col2: st.button("Resumo de Produção", help="Resumo de Produção", key="resumo_producao", use_container_width=True) with col3: st.button("Nascimentos e Óbitos", help="Dados de Nascimentos e Óbitos", key="nascimentos_obitos", use_container_width=True)
 
 Melhor espaçamento e uso do layout wide
 
