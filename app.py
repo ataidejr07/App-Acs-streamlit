@@ -56,5 +56,3 @@ elif menu == "Registrar Visitas":
     st.subheader("Registrar Visitas (Em breve)")
 
 st.markdown("<div class='bottom-bar'>Rodapé - Futuras Funcionalidades</div>", unsafe_allow_html=True)
-
-    
