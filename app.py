@@ -2,69 +2,59 @@ import streamlit as st
 
 st.set_page_config(page_title="Meu App", page_icon="🏥", layout="centered")
 
-# Personalizando o estilo
-st.markdown(
-    """
+# Estilo com CSS para abas azuis
+top_bar = """
     <style>
-    body {
-        background-color: white;
-        color: black;
-        font-family: Arial, sans-serif;
-    }
-    .stButton>button {
-        width: 100%;
-        height: 80px;
-        font-size: 18px;
-        border-radius: 10px;
+    .top-bar {
         background-color: #007BFF;
+        padding: 10px;
+        text-align: center;
         color: white;
-        border: none;
+        font-size: 24px;
+        font-weight: bold;
+        border-radius: 10px 10px 0 0;
     }
-    .stButton>button:hover {
-        background-color: #0056b3;
+    .bottom-bar {
+        background-color: #007BFF;
+        padding: 15px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        color: white;
+        font-size: 16px;
+        border-radius: 0 0 10px 10px;
     }
     </style>
-    """,
-    unsafe_allow_html=True,
-)
+"""
 
-st.title("📋 Meu App de Saúde")
+st.markdown(top_bar, unsafe_allow_html=True)
+st.markdown("<div class='top-bar'>Meu App de Saúde</div>", unsafe_allow_html=True)
 
-st.write("### Bem-vindo! Escolha uma opção:")
+# Navegação entre páginas
+menu = st.sidebar.radio("Navegação", ["Página Inicial", "Cadastro de Pacientes", "Visualizar Pacientes", "Agrupar por Endereço", "Registrar Visitas"])
 
-# Criando um layout de grade com os botões
-col1, col2 = st.columns(2)
+if menu == "Página Inicial":
+    st.subheader("Bem-vindo! Escolha uma opção no menu lateral.")
 
-with col1:
-    if st.button("📝 Cadastro de Pacientes"):
-        st.session_state["page"] = "cadastro"
+elif menu == "Cadastro de Pacientes":
+    st.subheader("Cadastro de Pacientes")
+    nome = st.text_input("Nome do Paciente")
+    idade = st.number_input("Idade", min_value=0, max_value=120, step=1)
+    endereco = st.text_area("Endereço")
+    comorbidades = st.text_area("Comorbidades")
+    if st.button("Salvar"):
+        st.success(f"Paciente {nome} cadastrado com sucesso!")
 
-    if st.button("📊 Visualizar Pacientes"):
-        st.session_state["page"] = "visualizar"
+elif menu == "Visualizar Pacientes":
+    st.subheader("Lista de Pacientes (Em breve)")
 
-with col2:
-    if st.button("🏠 Agrupar por Endereço"):
-        st.session_state["page"] = "endereco"
+elif menu == "Agrupar por Endereço":
+    st.subheader("Agrupar por Endereço (Em breve)")
 
-    if st.button("📅 Registrar Visitas"):
-        st.session_state["page"] = "visitas"
+elif menu == "Registrar Visitas":
+    st.subheader("Registrar Visitas (Em breve)")
 
-# Controle de navegação entre as páginas
-if "page" in st.session_state:
-    if st.session_state["page"] == "cadastro":
-        st.subheader("Cadastro de Pacientes")
-        nome = st.text_input("Nome do Paciente")
-        idade = st.number_input("Idade", min_value=0, max_value=120, step=1)
-        endereco = st.text_area("Endereço")
-        comorbidades = st.text_area("Comorbidades")
-        if st.button("Salvar"):
-            st.success(f"Paciente {nome} cadastrado com sucesso!")
+st.markdown("<div class='bottom-bar'>Rodapé - Futuras Funcionalidades</div>", unsafe_allow_html=True)
 
-    elif st.session_state["page"] == "visualizar":
-        st.subheader("Lista de Pacientes (Em breve)")
-
-    elif st.session_state["page"] == "endereco":
-        st.subheader("Agrupar por Endereço (Em breve)")
-
-    elif st.session_state["page"] == "visitas":
-        st.subheader("Registrar Visitas (Em breve)")
+    
