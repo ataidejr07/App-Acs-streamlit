@@ -27,7 +27,25 @@ with st.sidebar:
 
 # Organização dos botões principais em seções
 
-st.subheader("Cadastros") col1, col2, col3 = st.columns(3) with col1: if st.markdown('<div class="card">🏠 Domicílios</div>', unsafe_allow_html=True): st.write("Acessando Domicílios") with col2: if st.markdown('<div class="card">👨‍👩‍👧 Famílias</div>', unsafe_allow_html=True): st.write("Acessando Famílias") with col3: if st.markdown('<div class="card">🧑 Cidadãos</div>', unsafe_allow_html=True): st.write("Acessando Cidadãos")
+st.subheader("Cadastros")
+
+# Divisão em colunas
+col1, col2, col3 = st.columns(3)
+
+# Coluna 1
+with col1:
+    if st.markdown('<div class="card">🏠 Domicílios</div>', unsafe_allow_html=True):
+        st.write("Acessando Domicílios")
+
+# Coluna 2
+with col2:
+    if st.markdown('<div class="card">👨‍👩‍👧 Famílias</div>', unsafe_allow_html=True):
+        st.write("Acessando Famílias")
+
+# Coluna 3
+with col3:
+    if st.markdown('<div class="card">🧑 Cidadãos</div>', unsafe_allow_html=True):
+        st.write("Acessando Cidadãos")
 
 st.subheader("Análises e Relatórios") col1, col2, col3 = st.columns(3) with col1: if st.markdown('<div class="card">📊 Relatórios</div>', unsafe_allow_html=True): st.write("Acessando Relatórios") with col2: if st.markdown('<div class="card">📈 Resumo de Produção</div>', unsafe_allow_html=True): st.write("Acessando Resumo de Produção") with col3: if st.markdown('<div class="card">👶⚰️ Nascimentos e Óbitos</div>', unsafe_allow_html=True): st.write("Acessando Nascimentos e Óbitos")
 
