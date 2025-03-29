@@ -28,13 +28,13 @@ with col3: if st.button("🧑 Cidadãos"): st.info("Visualize os dados individua
 
 st.subheader("Análises e Relatórios")
 
-col1, col2, col3 = st.columns(3)
+col4, col5, col6 = st.columns(3)
 
-with col1: if st.button("📊 Relatórios"): st.info("Gere relatórios detalhados para análises e planejamento.")
+with col4: if st.button("📊 Relatórios"): st.info("Gere relatórios detalhados para análises e planejamento.")
 
-with col2: if st.button("📈 Resumo de Produção"): st.info("Acompanhe os indicadores de produtividade e desempenho.")
+with col5: if st.button("📈 Resumo de Produção"): st.info("Acompanhe os indicadores de produtividade e desempenho.")
 
-with col3: if st.button("👶⚰️ Nascimentos e Óbitos"): st.info("Registre e consulte informações sobre nascimentos e óbitos na comunidade.")
+with col6: if st.button("👶⚰️ Nascimentos e Óbitos"): st.info("Registre e consulte informações sobre nascimentos e óbitos na comunidade.")
 
 st.markdown('</div>', unsafe_allow_html=True)
 
