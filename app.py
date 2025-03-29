@@ -6,11 +6,19 @@ st.set_page_config(page_title="ACS Micro Área", page_icon="🏠", layout="wide"
 
 # Estilização com CSS
 
-st.markdown( """ <style> .header { position: fixed; top: 0; left: 0; width: 100%; background-color: #007BFF; color: white; text-align: center; padding: 15px; font-size: 24px; font-weight: bold; z-index: 1000; } .footer { position: fixed; bottom: 0; left: 0; width: 100%; background-color: #007BFF; color: white; text-align: center; padding: 10px; font-size: 14px; z-index: 1000; } .container { margin-top: 80px; margin-bottom: 50px; padding: 20px; } .card { display: flex; align-items: center; justify-content: center; height: 80px; background-color: #f8f9fa; border-radius: 10px; border: 1px solid #ddd; text-align: center; cursor: pointer; font-size: 18px; font-weight: bold; margin-bottom: 10px; transition: 0.3s; } .card:hover { background-color: #e9ecef; transform: scale(1.05); } </style> """, unsafe_allow_html=True, )
+st.markdown( """ <style> .header { position: fixed; top: 0; left: 0; width: 100%; background-color: #007BFF; color: white; text-align: center; padding: 10px; font-size: 24px; font-weight: bold; z-index: 1000; } .footer { position: fixed; bottom: 0; left: 0; width: 100%; background-color: #007BFF; color: white; text-align: center; padding: 10px; font-size: 14px; z-index: 1000; } .container { margin-top: 50px; margin-bottom: 50px; padding: 20px; } .welcome-text { font-size: 22px; font-weight: bold; text-align: center; margin-bottom: 20px; } .card { display: flex; align-items: center; justify-content: center; height: 80px; background-color: #f8f9fa; border-radius: 10px; border: 1px solid #ddd; text-align: center; cursor: pointer; font-size: 18px; font-weight: bold; margin-bottom: 10px; transition: 0.3s; } .card:hover { background-color: #e9ecef; transform: scale(1.05); } </style> """, unsafe_allow_html=True, )
 
 # Cabeçalho Fixo
 
 st.markdown('<div class="header">ACS Micro Área</div>', unsafe_allow_html=True)
+
+# Espaço para alinhar corretamente a seção de cadastros
+
+st.markdown("<div style='margin-top: 60px;'></div>", unsafe_allow_html=True)
+
+# Mensagem de boas-vindas
+
+st.markdown('<div class="welcome-text">Bem-vindo, Ataide!</div>', unsafe_allow_html=True)
 
 # Conteúdo principal
 
