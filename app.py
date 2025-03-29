@@ -1,6 +1,6 @@
 import streamlit as st
 
-Configuração da página
+# Configuração da página
 
 st.set_page_config(page_title="ACS Micro Área", page_icon="🏠", layout="wide")
 
