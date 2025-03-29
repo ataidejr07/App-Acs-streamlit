@@ -14,7 +14,16 @@ st.markdown(""" <style> .card { padding: 15px; background-color: #f8f9fa; border
 
 # Sidebar para opções secundárias
 
-with st.sidebar: st.header("Outras Opções") if st.markdown('<div class="card">📋 Cartões Espelho</div>', unsafe_allow_html=True): st.write("Acessando Cartões Espelho") if st.markdown('<div class="card">📝 Laudos e Receitas</div>', unsafe_allow_html=True): st.write("Acessando Laudos e Receitas")
+with st.sidebar:
+    st.header("Outras Opções")
+    
+    # Cartão "Cartões Espelho"
+    if st.markdown('<div class="card">📋 Cartões Espelho</div>', unsafe_allow_html=True):
+        st.write("Acessando Cartões Espelho")
+    
+    # Cartão "Laudos e Receitas"
+    if st.markdown('<div class="card">📝 Laudos e Receitas</div>', unsafe_allow_html=True):
+        st.write("Acessando Laudos e Receitas")
 
 # Organização dos botões principais em seções
 
