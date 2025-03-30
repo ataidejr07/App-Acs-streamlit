@@ -1,48 +1,49 @@
 import streamlit as st
-from streamlit_option_menu import option_menu
+from PIL import Image
 
-def main():
-    st.set_page_config(page_title='ACS Micro Área', layout='wide')
-    
-    # Barra de cabeçalho azul fixa
-    st.markdown(
-        '<div style="background-color: #007bff; padding: 10px; text-align: center; font-size: 24px; color: white; font-weight: bold;">ACS Micro Área</div>',
-        unsafe_allow_html=True
-    )
-    
-    # Criando a barra lateral com menu
-    with st.sidebar:
-        selected = option_menu("Menu", ["Página Inicial", "Domicílios", "Famílias", "Cidadãos", "Relatórios", "Resumo de Produção", "Nascimentos e Óbitos"],
-                               icons=['house', 'people', 'person', 'bar-chart', 'clipboard-data', 'activity', 'heart'],
-                               menu_icon="cast", default_index=0)
-    
-    # Ajustando o espaçamento da mensagem de boas-vindas
-    st.markdown("<h3 style='text-align: center;'>Bem-vindo, Ataide!</h3>", unsafe_allow_html=True)
-    
-    # Seções principais
-    st.write("### Cadastros")
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.button("🏠 Domicílios")
-    with col2:
-        st.button("👨‍👩‍👧‍👦 Famílias")
-    with col3:
-        st.button("🧑 Cidadãos")
-    
-    st.write("### Análises e Relatórios")
-    col4, col5, col6 = st.columns(3)
-    with col4:
-        st.button("📊 Relatórios")
-    with col5:
-        st.button("📈 Resumo de Produção")
-    with col6:
-        st.button("❤️ Nascimentos e Óbitos")
-    
-    # Rodapé azul fixo
-    st.markdown(
-        '<div style="background-color: #007bff; padding: 10px; position: fixed; bottom: 0; width: 100%; text-align: center; color: white;">Desenvolvido para ACS</div>',
-        unsafe_allow_html=True
-    )
+# Configuração da página
+st.set_page_config(page_title="ACS Micro Área", layout="wide")
 
-if __name__ == "__main__":
-    main()
+# Estilo CSS para ajustes visuais
+st.markdown(
+    """
+    <style>
+        .main .block-container {padding-top: 0rem;}
+        .stApp {background-color: #f8f9fa;}
+        .title-bar {background-color: #007bff; color: white; padding: 10px; text-align: center; font-size: 24px; font-weight: bold; position: fixed; width: 100%; top: 0; z-index: 1000;}
+        .footer {background-color: #007bff; color: white; padding: 10px; text-align: center; position: fixed; bottom: 0; width: 100%; z-index: 1000;}
+        .section {margin-top: 20px;}
+        .stButton>button {border-radius: 10px; padding: 10px; width: 100%; font-size: 18px;}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+# Barra de título fixa
+st.markdown('<div class="title-bar">ACS Micro Área</div>', unsafe_allow_html=True)
+
+# Espaço para evitar sobreposição com a barra fixa
+st.write("\n\n\n")
+
+# Mensagem de boas-vindas
+st.markdown("### Bem-vindo, Ataide!")
+
+# Seção de Cadastros
+st.markdown("## Cadastros")
+st.button("🏠 Domicílios")
+st.button("👨‍👩‍👧 Famílias")
+st.button("🧑 Cidadãos")
+
+# Seção de Análises e Relatórios
+st.markdown("## Análises e Relatórios")
+st.button("📊 Relatórios")
+st.button("📈 Resumo de Produção")
+st.button("👶⚰️ Nascimentos e Óbitos")
+
+# Seção de Funcionalidades Extras
+st.markdown("## Funcionalidades Extras")
+st.button("📝 Cartões Espelho")
+st.button("📄 Laudos e Receitas")
+
+# Rodapé fixo
+st.markdown('<div class="footer">Desenvolvido para ACS | Versão 1.0</div>', unsafe_allow_html=True)
