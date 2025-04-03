@@ -3,24 +3,17 @@ import streamlit as st
 # Configuração da página
 st.set_page_config(page_title="ACS Micro Área", layout="wide")
 
-# Estilos CSS para o cabeçalho fixo e o rodapé fixo
+# Estilos CSS ajustados
 st.markdown(
     """
     <style>
-        /* Resetando margens e padding */
-        html, body, [class*="st"] {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-
-        /* Cabeçalho fixo */
+        /* Cabeçalho fixo ajustado */
         .header {
             background-color: #0056b3;
             color: white;
-            padding: 15px 10px;
+            padding: 5px;
             text-align: center;
-            font-size: 22px;
+            font-size: 18px;
             font-weight: bold;
             position: fixed;
             top: 0;
@@ -33,7 +26,7 @@ st.markdown(
         .footer {
             background-color: #0056b3;
             color: white;
-            padding: 10px;
+            padding: 5px;
             text-align: center;
             font-size: 14px;
             position: fixed;
@@ -43,30 +36,15 @@ st.markdown(
             z-index: 1000;
         }
 
-        /* Espaço extra para evitar sobreposição */
+        /* Ajuste do conteúdo para evitar sobreposição */
         .content {
-            margin-top: 70px;
-            margin-bottom: 50px;
-            padding: 20px;
+            margin-top: 40px;
+            margin-bottom: 30px;
         }
 
-        /* Botões estilizados */
-        .custom-button {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            text-align: left;
-            border: 2px solid #ccc;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            background-color: white;
-            transition: 0.3s;
-        }
-
-        .custom-button:hover {
-            background-color: #f0f0f0;
+        /* Ajuste no tamanho do título */
+        .title-text {
+            font-size: 26px !important;
         }
     </style>
     """,
@@ -79,7 +57,7 @@ st.markdown('<div class="header">ACS Micro Área</div>', unsafe_allow_html=True)
 # Conteúdo principal
 st.markdown('<div class="content">', unsafe_allow_html=True)
 
-st.title("Bem-vindo, Ataide!")
+st.markdown('<h1 class="title-text">Bem-vindo, Ataide!</h1>', unsafe_allow_html=True)
 
 st.subheader("Cadastros")
 st.markdown('<button class="custom-button">🏡 Domicílios</button>', unsafe_allow_html=True)
@@ -91,7 +69,7 @@ st.markdown('<button class="custom-button">📊 Relatórios</button>', unsafe_al
 st.markdown('<button class="custom-button">📈 Resumo de Produção</button>', unsafe_allow_html=True)
 st.markdown('<button class="custom-button">👶⚰️ Nascimentos e Óbitos</button>', unsafe_allow_html=True)
 
-# Menu lateral com todas as funcionalidades
+# Menu lateral
 st.sidebar.title("Menu")
 st.sidebar.button("🏡 Domicílios")
 st.sidebar.button("👨‍👩‍👧‍👦 Famílias")
@@ -102,6 +80,5 @@ st.sidebar.button("🪪 Cartões Espelho")
 # Rodapé fixo
 st.markdown('<div class="footer">Desenvolvido para ACS</div>', unsafe_allow_html=True)
 
-# Fechando o conteúdo principal
+# Fechando a div do conteúdo principal
 st.markdown('</div>', unsafe_allow_html=True)
-
