@@ -1,49 +1,75 @@
 import streamlit as st
-from PIL import Image
+from streamlit_option_menu import option_menu
 
 # Configuração da página
 st.set_page_config(page_title="ACS Micro Área", layout="wide")
 
-# Estilo CSS para ajustes visuais
+# Estilo personalizado
 st.markdown(
     """
     <style>
-        .main .block-container {padding-top: 0rem;}
-        .stApp {background-color: #f8f9fa;}
-        .title-bar {background-color: #007bff; color: white; padding: 10px; text-align: center; font-size: 24px; font-weight: bold; position: fixed; width: 100%; top: 0; z-index: 1000;}
-        .footer {background-color: #007bff; color: white; padding: 10px; text-align: center; position: fixed; bottom: 0; width: 100%; z-index: 1000;}
-        .section {margin-top: 20px;}
-        .stButton>button {border-radius: 10px; padding: 10px; width: 100%; font-size: 18px;}
+        .header {
+            background-color: #0d6efd;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .footer {
+            background-color: #0d6efd;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+        .main-content {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
     </style>
     """,
-    unsafe_allow_html=True,
+    unsafe_allow_html=True
 )
 
-# Barra de título fixa
-st.markdown('<div class="title-bar">ACS Micro Área</div>', unsafe_allow_html=True)
+# Barra de Cabeçalho
+st.markdown('<div class="header">ACS Micro Área</div>', unsafe_allow_html=True)
 
-# Espaço para evitar sobreposição com a barra fixa
-st.write("\n\n\n")
+# Conteúdo principal
+st.markdown('<div class="main-content">', unsafe_allow_html=True)
 
-# Mensagem de boas-vindas
-st.markdown("### Bem-vindo, Ataide!")
+st.write("## Bem-vindo, Ataide!")
 
-# Seção de Cadastros
-st.markdown("## Cadastros")
+# Menu lateral
+with st.sidebar:
+    selected = option_menu("Menu", ["Início", "Domicílios", "Famílias", "Cidadãos", "Relatórios", "Resumo de Produção", "Nascimentos e Óbitos", "Cartões Espelho", "Laudos e Receitas"],
+                           icons=["house", "building", "people", "person", "bar-chart", "clipboard-data", "activity", "clipboard", "file-text"],
+                           menu_icon="list", default_index=0)
+
+# Seções principais
+st.write("### Cadastros")
 st.button("🏠 Domicílios")
 st.button("👨‍👩‍👧 Famílias")
 st.button("🧑 Cidadãos")
 
-# Seção de Análises e Relatórios
-st.markdown("## Análises e Relatórios")
+st.write("### Análises e Relatórios")
 st.button("📊 Relatórios")
 st.button("📈 Resumo de Produção")
 st.button("👶⚰️ Nascimentos e Óbitos")
 
-# Seção de Funcionalidades Extras
-st.markdown("## Funcionalidades Extras")
-st.button("📝 Cartões Espelho")
+st.write("### Funcionalidades Extras")
+st.button("📋 Cartões Espelho")
 st.button("📄 Laudos e Receitas")
 
-# Rodapé fixo
-st.markdown('<div class="footer">Desenvolvido para ACS | Versão 1.0</div>', unsafe_allow_html=True)
+# Rodapé
+st.markdown('<div class="footer">Desenvolvido para ACS</div>', unsafe_allow_html=True)
+
+st.markdown('</div>', unsafe_allow_html=True)
