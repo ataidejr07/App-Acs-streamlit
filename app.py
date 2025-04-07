@@ -1,9 +1,10 @@
 import streamlit as st
 
-# Estilo CSS para cabeçalho fixo, botão e menu lateral
+st.set_page_config(page_title="ACS Micro Área", layout="wide")
+
+# CSS personalizado
 st.markdown("""
     <style>
-        /* Cabeçalho fixo */
         .header {
             position: fixed;
             top: 0;
@@ -11,7 +12,7 @@ st.markdown("""
             width: 100%;
             background-color: #0066ff;
             color: white;
-            padding: 15px 10px;
+            padding: 14px 10px;
             z-index: 1000;
             display: flex;
             align-items: center;
@@ -23,8 +24,8 @@ st.markdown("""
             color: white;
             border: none;
             border-radius: 6px;
-            padding: 10px;
-            font-size: 20px;
+            padding: 10px 14px;
+            font-size: 22px;
             cursor: pointer;
             margin-right: 15px;
             box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
@@ -53,7 +54,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Cabeçalho com botão e título
+# Cabeçalho HTML
 st.markdown("""
     <div class="header">
         <form action="#menu">
@@ -80,10 +81,13 @@ st.button("👶⚰️ Nascimentos e Óbitos")
 
 st.markdown('</div>', unsafe_allow_html=True)
 
-# Menu lateral simulado ao clicar no botão
-menu = st.sidebar.radio("Menu", ["Cartões Espelho", "Laudos e Receitas"])
+# Menu lateral
+with st.sidebar:
+    st.markdown("### Menu")
+    st.page_link("app.py", label="Cartões Espelho", icon="🗂️")
+    st.page_link("app.py", label="Laudos e Receitas", icon="📝")
 
-# Rodapé fixo
+# Rodapé
 st.markdown("""
     <div class="footer">
         Desenvolvido para ACS
