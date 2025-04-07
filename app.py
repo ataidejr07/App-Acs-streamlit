@@ -1,86 +1,91 @@
 import streamlit as st
-import streamlit.components.v1 as components
 
-# Configuração da página
-st.set_page_config(page_title="ACS Micro Área", page_icon="🏥", layout="centered")
-
-# Estilos CSS
+# Estilo CSS para cabeçalho fixo, botão e menu lateral
 st.markdown("""
     <style>
-        /* Cabeçalho ocupando toda a largura */
-        .custom-header {
-            background-color: #0d6efd;
+        /* Cabeçalho fixo */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #0066ff;
             color: white;
-            padding: 14px 16px;
-            font-size: 24px;
-            font-weight: bold;
+            padding: 15px 10px;
+            z-index: 1000;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            margin: -3.5rem -1rem 2rem -1rem;
-            z-index: 99;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
         }
 
-        .menu-icon {
-            font-size: 26px;
+        .menu-button {
+            background-color: #0047b3;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 10px;
+            font-size: 20px;
             cursor: pointer;
-            margin-right: 12px;
+            margin-right: 15px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
         }
 
-        /* Rodapé fixo */
-        .custom-footer {
+        .header-title {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .main-content {
+            padding-top: 80px;
+        }
+
+        .footer {
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
-            background-color: #0d6efd;
+            background-color: #0066ff;
             color: white;
             text-align: center;
-            padding: 8px;
-            font-size: 14px;
-            z-index: 100;
-        }
-
-        /* Botões de menu com bordas arredondadas */
-        .menu-button {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 8px 16px;
-            margin-bottom: 10px;
-            font-size: 16px;
-            display: inline-block;
-        }
-
-        /* Ícones com espaçamento */
-        .menu-button span {
-            margin-right: 6px;
+            padding: 10px;
+            z-index: 1000;
         }
     </style>
 """, unsafe_allow_html=True)
 
-# Cabeçalho com ícone de menu lateral
-st.markdown('''
-    <div class="custom-header">
-        <div class="menu-icon" onclick="document.querySelector('details[open] summary').click();">&#9776;</div>
-        ACS Micro Área
+# Cabeçalho com botão e título
+st.markdown("""
+    <div class="header">
+        <form action="#menu">
+            <button class="menu-button" type="submit">☰</button>
+        </form>
+        <div class="header-title">ACS Micro Área</div>
     </div>
-''', unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
-# Conteúdo da tela
+# Conteúdo principal
+st.markdown('<div class="main-content">', unsafe_allow_html=True)
+
 st.markdown("## Bem-vindo, Ataide!")
-st.markdown("### Cadastros")
 
-st.markdown('<div class="menu-button">🏠 <b>Domicílios</b></div>', unsafe_allow_html=True)
-st.markdown('<div class="menu-button">👨‍👩‍👧‍👦 <b>Famílias</b></div>', unsafe_allow_html=True)
-st.markdown('<div class="menu-button">🧑 <b>Cidadãos</b></div>', unsafe_allow_html=True)
+st.markdown("### Cadastros")
+st.button("🏠 Domicílios")
+st.button("👨‍👩‍👧 Famílias")
+st.button("🧑 Cidadãos")
 
 st.markdown("### Análises e Relatórios")
-st.markdown('<div class="menu-button">📊 <b>Relatórios</b></div>', unsafe_allow_html=True)
-st.markdown('<div class="menu-button">📈 <b>Resumo de Produção</b></div>', unsafe_allow_html=True)
-st.markdown('<div class="menu-button">👶⚰️ <b>Nascimentos e Óbitos</b></div>', unsafe_allow_html=True)
+st.button("📊 Relatórios")
+st.button("📈 Resumo de Produção")
+st.button("👶⚰️ Nascimentos e Óbitos")
 
-# Espaço extra para o rodapé
-st.markdown("<br><br><br><br>", unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
 
-# Rodapé
-st.markdown('<div class="custom-footer">Desenvolvido para ACS</div>', unsafe_allow_html=True)
+# Menu lateral simulado ao clicar no botão
+menu = st.sidebar.radio("Menu", ["Cartões Espelho", "Laudos e Receitas"])
+
+# Rodapé fixo
+st.markdown("""
+    <div class="footer">
+        Desenvolvido para ACS
+    </div>
+""", unsafe_allow_html=True)
